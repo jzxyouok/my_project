@@ -1,0 +1,43 @@
+<form class="login" name="myForm" ng-submit="submitUser()">
+	<ul>
+		<li class="register">
+			账号注册
+		</li>
+		<span ng-show="name_repeat" style="padding-left: 30px;color:red;font-size: 12px;">该账号已被注册</span>
+		<li>
+
+			<input autocomplete="off" id="user_name" name="user_name" ng-model="name" required  type="text" placeholder="  注册用户名">
+		</li>
+		<li>
+			<input type="password" id="user_pwd" name="user_pwd" ng-model="pwd" required placeholder="  密码">
+		</li>
+		<span ng-show="pwd_repeat" style="padding-left: 30px;color:red;font-size: 12px;">密码输入不同</span>
+		<li>
+			<input type="password" id="user_pwd2" name="user_pwd2" ng-model="pwd2" required placeholder="  确认密码">
+		</li>
+		<div ng-hide="!name_repeat&&!pwd_repeat" style="line-height:42px;width: 343px;height: 48px;border: 1px solid #ddd;margin: 15px auto;
+    		display: block;
+    		box-sizing: border-box;
+    		background:#ddd" class="login-button">立即注册</div>
+		<input ng-show="!name_repeat&&!pwd_repeat" class="login-button" type="submit" value="立即注册" ng-disabled="myForm.$invalid"/>
+		<li class="sign-up">
+			<a href="#/login">已经有账号了</a>
+		</li>
+
+		<li class="oth_type"><div></div><p>其他方式注册</p></li>
+		<ul class="oth_type_links">
+			<li>
+			<div></div>
+				<a href="#"></a>
+			</li>
+			<li>
+				<div></div>
+				<a href="#"></a>
+			</li>
+			<li>
+				<div></div>
+				<a href="#"></a>
+			</li>
+		</ul>
+	</ul>
+</form>

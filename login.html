@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html ng-app="xiaomi">
+<head>
+	<title>登陆</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<style type="text/css">
+		#login-main{
+			 
+			background: rgb(20,33,43);
+			height:588px;
+			width: 100%;
+		}
+		.login-logo{
+			background: url(Images/x9l2+8DIkWcdvpFtv9w3ggBPDwbrNQQLAIqALBYAgCAAAIIAAAgCACAIAIAgAACCAAAIAgAgCACAIAAAgCAAAIIAAAgCACAIAIAgAACCAAAIAgAgCACAIAAAggAAAIIAAAgCACAIAIAgALAP+L8AAwC43nV1cLnudAAAAABJRU5ErkJggg==.png) no-repeat;
+			width:1130px;
+			height: 100px;
+			margin: 0 auto;
+		}
+		.AD-Z{
+			background: url(Images/Z.jpg) no-repeat;
+			height:588px;
+			width: 1130px;
+			margin: 0 auto; 
+			position: relative;
+		}	
+		.login{
+			background: #fff;
+			width: 400px;
+			height: 500px;
+			float: left;
+			position: absolute;
+			right: 0px;
+			top: 50px;
+		}
+		.login>ul>li{
+			font-size: 23px;
+			color: #aaa;
+		}
+		.login_tabs{
+			padding: 30px 59px;
+		}
+		.login_tabs a:first-child{
+			color:#f56600;
+		}
+		.login>ul>li>a{
+			padding: 0px 20px;
+		}
+		.login input{
+			width: 343px;
+			height: 48px;
+			border: 1px solid #ddd;
+			margin: 15px auto;
+			display: block;
+			box-sizing: border-box;
+		}
+		.login input:focus {
+		 	outline:none;
+		}
+		.login-button{
+			width: 344px;
+			height: 50px;
+			background: #f56600;
+			font-size: 20px;
+			color: #fff;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+			margin: 10px auto;
+		}
+		.login-buttons{
+			line-height: 50px;
+		}
+		#login-main .sign-up{
+			font-size: 14px;
+			text-align: center;
+		}
+		#login-main .sign-up a{
+			color: #aaa;
+		}
+ 		#login-main .oth_type{
+ 			font-size: 14px;
+ 			text-align: center;
+ 			padding-top: 30px;
+  
+ 		}
+ 		#login-main .oth_type>div{
+ 			border-top: 1px solid #ddd;
+ 			position: relative;
+ 			top: 10px;
+ 			width: 340px;
+ 			margin: 0 auto;
+ 		}
+ 		#login-main .oth_type>p{
+ 			background: #fff;
+ 			width: 90px;
+ 			margin: 0 auto;
+ 			position: relative;
+ 			z-index: 100;
+ 		}
+ 		.oth_type_links{
+ 			 
+ 			height: 40px;
+ 			width: 100%;
+ 			padding-left: 100px;
+ 		}
+ 		.oth_type_links li {
+ 			border-radius: 50%;
+ 			width: 30px;
+ 			height: 30px;
+ 			float: left;
+ 			margin: 10px 17px;
+ 			background:rgb(116,116,116);
+ 		}
+ 		.oth_type_links li a{
+ 			border-radius: 50%;
+ 			width: 30px;
+ 			height: 30px;
+ 			display: block;
+ 			position: relative;
+ 			top: -40px;
+ 		}
+ 		.oth_type_links li div{
+ 			width: 20px;
+ 			height: 30px;
+			background: url(Images/icons_type.png)no-repeat -18px 0px;
+ 		 	margin: 5px auto;
+ 		}
+ 		.oth_type_links li:nth-child(2) div{
+ 			background-position: -36px 0px;
+			 
+ 		}
+ 		.oth_type_links li:nth-child(3) div{
+ 			background-position: -57px 0px;
+			 
+ 		}
+ 		footer{
+ 			position: relative;
+ 			height: 110px;
+ 		}
+ 		footer>div{
+ 			position: relative;
+ 			width: 100%;
+ 			height: 80px;
+ 		}
+ 		.lanage:after {
+			content: "";
+			display: block;
+			clear: both;
+		} 
+ 		.lanage{
+ 		 	position: absolute;
+ 		 	top: 100%;
+ 		 	right: 40%;
+
+ 		}
+ 		.lanage li{
+ 			float: left;
+ 			padding: 0px 10px;
+ 		}
+ 		.lanage li a{
+ 			float: left;
+ 			padding: 0px 16px 0px 0px;
+ 		}
+ 		.login_copyright{
+ 			position: absolute;
+ 			right: 35%;
+ 			top: 100%;
+ 		}
+ 		.register{
+			padding: 30px 150px;
+		}
+		.register:first-child{
+			color:#f56600;
+		}
+		input{
+			font-size: 16px;
+			/*color: #000;*/
+			font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+			padding: 10px 10px;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular-route.js"></script>
+	<script type="text/javascript" src="js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+</head>
+<body>
+	<header class="login-logo"></header>
+	<div id="login-main">
+		<div class="AD-Z">
+			<div ng-view=""></div>
+		</div>
+	</div>
+	<footer>
+		<div>
+			<ul class="lanage">
+				<li>
+					<a href="#">简体</a>|
+				</li>
+				<li>
+					<a href="#">繁体</a>|
+				</li>
+				<li>
+					<a href="#">English</a>|
+				</li>
+				<li>
+					<a href="#">常见问题</a> 
+				</li> 
+			</ul>
+		</div>
+		<p class="login_copyright">
+			小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号
+		</p>
+	</footer>
+</body>
+</html>

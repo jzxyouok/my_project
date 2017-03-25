@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>video</title>
+</head>
+	<style>
+		body{
+			background-color: rgba(0,0,0,.8);
+		}
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		#btPlay{
+			position: absolute;
+			top:50%;
+			left: 50%;
+		}
+		#btPlay{
+			position: absolute;
+			top: 10%;
+			left: 50%;
+			margin-left: -440px;
+			height: 536px;
+			width: 880px;
+		}
+		#ad,#player,#videoPlayer{
+			height: 95%;
+			width: 100%;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+		}
+		#btPlay>div{
+			text-align:center;
+			display: block;
+		    width: 90px;
+		    height: 90px;
+		    position: absolute;
+		    top: 40%;
+		    left: 50%;
+		    margin-left: -33px;
+			margin-top: -50px;
+			background: url(../Images_MIX/big_play_btn.png)no-repeat 0px 0px;
+		}
+		#videoUi{
+			background-color: #000;
+			position: absolute;
+			left: 0;
+			bottom: -5%;
+			width:100%;
+			height: 54px;
+			/*transition: all .5s;*/
+		}
+		.btnC{
+			float: left;
+			height: 20px;
+		    width: 20px;
+		    margin-left: 50px;
+		    margin-top: 10px;
+		    cursor: pointer;
+
+		}
+		
+		.play{
+		    width: 0;
+		    height: 0;
+		    border-radius: 3px;
+		    border-top: 10px solid transparent;
+		    border-left: 20px solid #fff;
+		    border-bottom: 10px solid transparent;
+	        transition: border-left-color .2s linear;
+		}
+		.play:hover{
+			border-left-color: #ff6700;
+		}
+
+		#progressWrap{
+            background-color: #000;
+            height: 6px;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+        #progressWrap:hover{
+            background-color: rgba(255,255,255,.4);
+        }
+        #playProgress{
+            background-color: #ff6700;
+            width: 0px;
+            height: 6px;
+        }
+        #playProgressBtn{
+        	position: relative;
+        	left: 1px;
+            background-color: #fff;
+            width: 15px;
+            height: 15px;
+            top: -5px;
+            border-radius: 10px;
+        }
+        #allTime,#showProgress{
+        	width: 100px;
+        	font-size: 14px;
+        	font-weight: normal;
+        	color: #fff;
+        	position: relative;
+        	top: 7px;
+        	left: 40px;
+            line-height: 25px;
+        }
+        .fullScreenBtn{
+        	padding-right: 100px;
+        	margin-top: 10px;
+        	float: right;
+        	height: 20px;
+        	width: 20px;
+        	background:url(../Images_MIX/btns.png)no-repeat 0px -100px;         	
+        }
+        .fullScreenBtn:hover{
+        	cursor: pointer;        	
+        }
+        .volume{
+        	height: 10px;
+        	padding-right: 50px;
+        	padding-top: 10px;
+        	margin-top: 10px;
+        	float: right;
+        	width: 20px;
+        	background:url(../Images_MIX/btns.png)no-repeat 0px -40px;     
+        }
+        .volume:hover{
+        	cursor: pointer;        	
+        }
+        .volume-all{
+        	display: none;
+        	left: -5px;
+        	top: -185px;
+        	position: relative;
+        	padding: 0 11px;
+        	height: 100px;
+        	width: 6px;
+        	background-color: #3F3F3F;
+        	border-radius: 2px;
+        }
+        .volume-progress{
+        	display: none;
+        	border-radius: 2px;
+        	height: 80px;
+        	left: 6px;
+        	padding: 0px;
+        	z-index: 1000;
+        	top: -95px;
+        	position: relative;
+        	width: 6px;
+        	background-color: #000;
+        }
+        #showVolume,#VolumeBtn{
+        	width: 6px;
+        	height: 80px;
+        	position: relative;
+        	background-color: #ff6700;
+
+        }
+        .close{
+        	z-index: 9999;
+        	position: absolute;
+        	top: 20px;
+        	right: 5%;
+        	width: 40px;
+		    height: 40px;
+		    line-height: 34px;
+		    border-radius: 50%;
+		    font-size: 30px;
+		    background-color: #e53935;
+		    color: #fff;
+        	cursor: pointer;
+        }
+        .close span{
+        	z-index: 9999;
+        	cursor: pointer;
+		    font-size: 30px;
+		    color: #fff;
+		    padding-left: 10px;
+        }
+	</style>
+<body>
+	<div  style="background-color: #000"  id="player">
+		<p class="close">
+			<span>X</span>
+		</p>
+		<video style="background-color: #000" id="videoPlayer"  src="../video/birds.mp4"></video>
+		<img id="ad" src="../Images_MIX/poster.jpg" alt="">
+		<a id="btPlay" href="#"><div></div></a>
+		<!-- 视频控制 -->
+		<div id="videoUi">
+			<div id="progressWrap">  
+                <div id="playProgress">
+                <div id="playProgressBtn"></div>  
+                </div>
+            </div>
+            <span id="showProgress">0:00</span> 
+            <span id="allTime">/-:--</span> 
+            	<div class="fullScreenBtn">
+					
+				</div>
+				<div class="volume">
+					<div class="volume-progress"></div>
+					<div class="volume-all"></div>
+				</div>
+				<span id="showVolume"></span> 
+            	<span id="VolumeBtn"></span> 
+			<div class="btnC">
+				<div class="play">
+					
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script>
+		//为播放控制按钮绑定时间监听
+		var play=document.querySelector('.play');
+		var videoPlayer=document.querySelector('#videoPlayer');
+		var progressWrap=document.querySelector('#progressWrap');
+		var fullScreenBtn=document.querySelector('.fullScreenBtn');
+		var fullScreenFlag = 0;
+		var volume=document.querySelector('.volume');
+		var volumeProgress=document.querySelector('.volume-progress');
+		var volumeAll=document.querySelector('.volume-all');
+		play.onclick=function (e) {
+			e.preventDefault();
+			if (videoPlayer.paused===true) {
+				if ( videoPlayer.ended ){ 
+                    videoPlayer.currentTime = 0;
+                    } 
+				videoPlayer.play();
+	            progressFlag = setInterval(getProgress, 60)
+				document.querySelector('#btPlay').style.opacity='0'
+			}else{
+				videoPlayer.pause();
+				document.querySelector('#btPlay').style.opacity='1'				
+			}
+		}
+		btPlay.onclick=function (e) {
+			e.preventDefault();
+			if (videoPlayer.paused===true) {
+				if ( videoPlayer.ended ){ 
+                    videoPlayer.currentTime = 0;
+                    } 
+				videoPlayer.play();
+	            progressFlag = setInterval(getProgress, 60);
+
+				this.style.opacity='0'
+			}else{
+				videoPlayer.pause();
+				this.style.opacity='1'
+			}
+		}
+		volume.onmouseover=function (e) {
+			volumeAll.style.display='block'
+			volumeProgress.style.display='block'
+		}
+		volume.onmouseout=function (e) {
+			if (e.target!==(volumeAll)) {
+				volumeAll.style.display='none'
+				volumeProgress.style.display='none'
+			}
+		}
+		volumeAll.onmouseout=function (e) {
+			volumeAll.style.display='none'
+			volumeProgress.style.display='none'
+		}
+		var container=document.querySelector('#player');
+		fullScreenBtn.onclick=function (e) {
+			if (fullScreenFlag==0) {
+				container.webkitRequestFullscreen();
+				fullScreenBtn.style.background="url(../Images_MIX/btns.png)no-repeat 0px -120px";
+				fullScreenFlag=1	
+			}else if(fullScreenFlag==1){
+				document.webkitCancelFullScreen();
+				fullScreenFlag=0	
+				fullScreenBtn.style.background="url(../Images_MIX/btns.png)no-repeat 0px -100px";
+			}
+		}
+		videoPlayer.onplay=function () {
+			ad.style.display='none';
+		}
+
+		// video的播放条
+        function getProgress(){
+            var percent = videoPlayer.currentTime / videoPlayer.duration;
+            playProgress.style.width = percent * (progressWrap.offsetWidth) - 2 + "px";
+            playProgressBtn.style.left = playProgress.style.width
+            // showProgress.innerHTML = (percent * 100).toFixed(1) + "%";
+            if (videoPlayer.currentTime%60<10) {
+        	 	showProgress.innerHTML = parseInt(videoPlayer.currentTime/60)+":0"+parseInt(videoPlayer.currentTime%60)+"/";
+            }else{
+	            showProgress.innerHTML = parseInt(videoPlayer.currentTime/60)+":"+parseInt(videoPlayer.currentTime%60)+"/";
+            }
+           	if (0<allTime.duration%60<10) {
+        	 	allTime.innerHTML = parseInt(videoPlayer.duration/60)+":0"+parseInt(videoPlayer.duration%60);
+            }else if(allTime.duration%60==0){
+            	allTime.innerHTML = parseInt(videoPlayer.duration/60)+":00"
+            }else{
+	            allTime.innerHTML = parseInt(videoPlayer.duration/60)+":"+parseInt(videoPlayer.duration%60);
+            }
+        }
+        // getProgress();
+        // 鼠标在播放条上点击时进行捕获并进行处理
+        progressWrap.onclick=function(e){
+            if(videoPlayer.paused || videoPlayer.ended){
+                videoPlayer.play();
+                enhanceVideoSeek(e);
+            }
+            else{
+                enhanceVideoSeek(e);
+            }
+        }
+        function enhanceVideoSeek(e){
+            var length = e.pageX - progressWrap.offsetLeft;
+            var percent = length / progressWrap.offsetWidth;
+            playProgress.style.width = percent * (progressWrap.offsetWidth) - 2 + "px";
+            videoPlayer.currentTime = percent * videoPlayer.duration;
+            progressFlag = setInterval(getProgress, 60);
+        }
+        var close=document.querySelector('.close');
+        close.onclick=function(){
+		 	window.parent.document.querySelector('.video1').className="video1"
+		 	videoPlayer.pause();
+		};
+	</script>
+</body>
+</html>

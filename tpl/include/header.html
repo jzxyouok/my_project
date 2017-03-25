@@ -1,0 +1,21 @@
+<header ng-controller="header" class="mini-header">
+		<div class="container">
+			<div class="header-logo">
+				<a class="logo" href="index.html">
+					<img src="Images/logo.jpg" alt="">
+				</a>
+			</div>
+			<span ng-show="loginShow" ng-click="logOut()" class="product-log-out">	
+			注销
+			</span>
+			<span ng-show="loginShow" ng-click="cart()" ng-bind="user_name+' '+'购物车'" class="product-user">	
+			</span>
+			<a ng-click="register()" ng-hide="loginShow" class="product-log-out">	
+				注册
+			</a>
+			<a ng-click="login()" ng-hide="loginShow" class="product-user">	
+				登陆
+			</a>
+
+		</div>
+</header>

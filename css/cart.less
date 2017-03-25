@@ -1,0 +1,156 @@
+#cart{
+  background: #f5f5f5;
+  padding-top: 38px;
+  padding-bottom: 38px;
+}
+.cart-goods-lists{
+  background-color: #fff;
+  .col{
+    float: left;
+  }
+  .col-check{
+    width: 110px;
+  }
+  .col-img{
+    width: 120px;
+  }
+  .col-name{
+    width: 380px;
+    line-height: 60px;
+  }
+  .col-num{
+    padding: 0 40px;
+    width: 150px;
+    text-align: center;
+    color: #424242;
+    line-height: 70px;
+  }
+  .col-total{
+    width: 120px;
+    text-align: center;
+  }
+  .col-action{
+    width: 80px;
+    text-align: center;
+  }
+  .item-table{
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    .item-row{
+      display: table-row;
+    }
+    .col {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+.list-head{
+  height: 70px;
+  line-height: 70px;
+  padding-right: 26px;
+  color: #424242;
+  font-size: 16px;
+  .col-price{
+    padding-left: 52px;
+  }
+  .col-total{
+    padding-left: 3px;
+  }
+  .col-name{
+    line-height: 68px;
+  }
+}
+.item-box{
+  padding: 15px 26px 15px 0;
+  border-top: 1px solid #e0e0e0;
+}
+#listBody{
+  font-size: 16px;
+}
+.col-price{
+  padding: 0 40px;
+  line-height: 70px;
+}
+.cart-bar{
+  height: 50px;
+  text-align: right;
+  background-color: #fff;
+  transition: background .3s ease, top .3s ease;
+  position: relative;
+  .total-price{
+    padding-left: 13px;
+    color: #ff6700;
+  }
+  .btn{
+    width: 200px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 18px;
+    margin-left: 50px;
+    vertical-align: top;
+  }
+  .btn-a{
+    transition: color .3s;
+  }
+  .btn-primary{
+    background: #ff6700;
+    border-color: #ff6700;
+    color: #fff;
+  }
+}
+
+#cartTotalPrice{
+  display: inline-block;
+  font-style: normal;
+  font-size: 30px;
+}
+
+.change-num{
+  width: 148px;
+  height: 38px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  background-color: #fff;
+  position: relative;
+  zoom: 1;
+  margin: 6px 40px;
+  a{
+    cursor: pointer;
+    float: left;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    color: #757575;
+    font-size: 20px;
+    transition: all .3s;
+  }
+}
+#listBody .change-num>div{
+  position: relative;
+  top: -28px;
+  margin: 0 46px;
+  width: 57px;
+  padding: 0;
+  line-height:21px;
+}
+
+#listBody .col-price{
+  line-height:56px;
+}
+#listBody{
+  .col-total{
+    line-height: 46px;
+    color: #ff6700;
+  }
+  .col-action{
+    line-height: 43px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color .2s linear;
+  }
+  .col-action:hover{
+    color: #ff6700;
+  }
+}

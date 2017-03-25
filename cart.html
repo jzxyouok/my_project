@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+	<link rel="stylesheet" type="text/css" href="css/product_detail.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/cart.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+ </head>
+<!-- 引入一个控制器  后面改动态 这地方要修改  用js加载控制器 -->
+<body>
+
+
+<div ng-include="'tpl/include/cart_header.html'"></div>
+<!-- 主要内容 -->
+<div id="cart">
+	<div  ng-controller="cart"  class="container">
+		<div class="cart-box">
+			<div style="padding-left:111px;" class="cart-goods-lists">
+				<div class="list-head">
+					<div class="col col-img">&nbsp</div>
+					<div class="col col-name">商品名称</div>
+					<div class="col col-price">单价</div>
+					<div class="col col-num">数量</div>
+					<div class="col col-total">小计</div>
+					<div class="col col-action">操作</div>
+				</div>
+				<div  id="listBody" class="list-body">
+					<div class="item-box">
+						<div ng-repeat="product in product track by $index" class="item-table">
+							<div  class="item-row">
+								<div class="col col-img">
+									<a href=""><img style="width:80px;" ng-src="Images/detail/{{product.img}}" alt=""></a>
+								</div>
+								<div ng-bind="product.name+' '+product.version+' '+product.color" class="col col-name"></div>
+								<div ng-bind="product.price+'元'" class="col col-price"></div>
+								<div class="col change-num">
+									<a ng-click="add($index)" style="float: right">+</a>
+									<a ng-click="remove($index)">-</a>
+									<div ng-bind="product.count" class="col col-num"></div>
+								</div>
+								<div ng-bind="product.total+'元'"  class="col col-total"></div>
+								<div ng-click="delete($index)" class="col col-action">X</div>
+							</div>
+						</div>
+					</div>
+				</div>					
+			</div>
+			<div class="cart-bar">
+				<span   class="total-price">
+                    合计（不含运费）：<p ng-bind="total_all" id="cartTotalPrice"></p>元
+				</span>
+				<a ng-click="end()" href="" class="btn btn-a btn-primary ">去结算</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include="'tpl/include/footer.html'"></div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="js/cart.js"></script>
+
+</body>
+</html>

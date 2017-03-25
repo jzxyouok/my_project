@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小米手机5s</title>
+	<link rel="stylesheet" href="css/swiper-3.4.1.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/product_detail.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+ </head>
+<!-- 引入一个控制器  后面改动态 这地方要修改  用js加载控制器 -->
+<body>
+
+
+<div ng-include="'tpl/include/header.html'"></div>
+<!-- 主要内容 -->
+<div id="content">
+	<div class="container buy-choose-box">
+		<ul class="pro-nav-8">
+			<!-- 八种手机 -->
+			<li class="item"><a href="product_5c.html">小米5c</a></li>
+			<li class="item">
+				<a href="product_mix.html">小米MIX</a>
+			</li>
+			<li class="item"><a href="product_note2.html">小米Note2</a></li>
+			<li class="item" style="border-bottom:1px solid #000"><a href="product_5s.html">小米手机5S</a></li>
+			<li class="item"><a href="product_5s.html">小米手机5S&nbspPlus</a></li>
+			<li class="item"><a href="product_5s.html">红米Note4X</a></li>
+			<li class="item"><a href="product_5s.html">红米Note4</a></li>
+			<li class="item"><a href="product_5s.html">红米手机4X</a></li>
+			<li class="item"><a href="product_5s.html">小米手机5</a></li>
+			<li class="item"><a href="product_5s.html">小米MAX</a></li>
+		</ul>
+		<div class="bd">
+			<div ng-controller="choose5s" class="pro-choose-main">
+				<div class="pro-view">
+					<img ng-src="{{img}}" alt="">
+				</div>
+				<div class="pro-info">
+					<div class="pro-title">
+						<h1>
+							<span class="pro-name">购买小米手机5s</span>
+							<span ng-bind="price+'元'" class="pro-price"></span>
+						</h1>
+						<a class="pro-more" href="">深入了解产品></a>
+					</div>
+					<p style="color:red;">【购小米系列手机，立享最高12期分期！】</p>
+					<div id="proStep">
+						<div class="pro-step">
+							<div class="step-title">
+								1. 选择版本
+								<span class="pro-version">骁龙821处理器 最高主频 2.15GHz，3GB内存，64GB容量，全网通3.0</span>
+							</div>
+							<ul class="step-list clear">
+								<li ng-bind="version.version" ng-click='li_click1($index)'
+									ng-class='{focus: $index==focus1}'
+									ng-repeat="version in versions track by $index"
+									class="step-item">
+								</li>
+							</ul>
+						</div>
+						<div class="pro-step">
+								<span class="step-title">
+									 2. 选择颜色
+								</span>
+							<ul class="step-list">
+								<li  ng-click='li_click2($index)'
+									ng-class='{focus: $index==focus2}'
+									ng-repeat="color in colors track by $index"
+									class="step-item">
+									<img  ng-src="Images/detail/{{color.img}}" alt="">
+									<span ng-bind="color.color"></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="choose-result-msg">
+						<span class="msg-tit">您选择了以下产品:</span>
+						<p class="msg-bd" ng-bind="'小米5s'+' '+version+' '+color+' '+price+'元'"></p>
+					</div>
+					<div class="choose-result">
+						<a class="btn btn-buy" ng-click="buy()">立即购买</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 商品主要介绍部分 -->
+	<div class="main-pro-box">
+		<div class="pro-detail-box">
+			<div class="section section-image">
+				<a href="#">
+					<img ng-src="Images/detail/mi5s-shenruliaojie.jpg" alt="">
+				</a>
+			</div>
+			<!-- 轮播 -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" style="background:url(Images/detail/detail_slider1.jpg) center center no-repeat"></div>
+					<div class="swiper-slide" style="background:url(Images/detail/detail_slider2.jpg) center center no-repeat"></div>
+					<div class="swiper-slide" style="background:url(Images/detail/detail_slider3.jpg) center center no-repeat"></div>
+					<div class="swiper-slide" style="background:url(Images/detail/detail_slider4.jpg) center center no-repeat"></div>
+				</div>
+				<!-- Add Pagination -->
+				<div id="swiperBtn" class="swiper-pagination swiper-pagination-white"></div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+			<div class="section section-image">
+				<a href="#">
+					<img src="Images/detail/mi5s-yiwaibao.jpg" alt="">
+				</a>
+			</div>
+			<div ng-controller="detail" class="section section-specs container">
+				<div ng-click="clickShow()" class="spec-title"> 了解小米5s参数
+					<i class="arrow" ng-show="click_show"></i>
+					<i class="arrow active" ng-hide="click_show"></i>
+				</div>
+				<h1 ng-show="click_show">我是参数</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include="'tpl/include/5s_footer.html'"></div>
+<div ng-include="'tpl/include/footer.html'"></div>
+
+<!-- video弹出显示 -->
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/swiper-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/detail.js"></script>
+	<!-- <script type="text/javascript" src="js/main.js"></script> -->
+<script>
+	$(document).ready(function () {
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			paginationClickable: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			//speed:1000,
+			//spaceBetween:0,
+			effect: 'fade',
+			loop: 1,
+			// 鼠标拖动无效
+			simulateTouch: true,
+			observer: true,  //修改Swiper自己或子元素时初始化Swiper
+			observeParents: true //修改Swiper的父元素时，自动初始化Swiper
+		})
+	})
+
+
+
+
+</script>
+</body>
+</html>

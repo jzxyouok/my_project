@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>错误</title>
+	<link rel="stylesheet" type="text/css" href="css/product_detail.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+	<style>
+		h1{
+			text-align: center;
+			height: 600px;
+			line-height: 400px;
+			font-weight: normal;
+			font-size: 40px;
+			color: #ff6700;
+		}
+		.btn{
+			background-color: #ff6700;
+			color: #fff;
+			border: none;
+			display: block;
+			position: relative;
+			left: 45%;
+			top: -20%;
+		}
+		.btn:hover{
+			color: #fff;
+		}
+	</style>
+ </head>
+<!-- 引入一个控制器  后面改动态 这地方要修改  用js加载控制器 -->
+<body>
+
+
+<div ng-include="'tpl/include/header.html'"></div>
+	<h1>糟糕! 你来到了信号的荒漠
+	<br><a href="index.html" class="btn">返回首页</a></h1>
+<div ng-include="'tpl/include/footer.html'"></div>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/detail.js"></script>
+	<script>
+		var app=angular.module('myApp',['ng'])
+		var app=angular.module('myApp',['ng'])
+		app.controller('header', function ($scope) {
+			if(sessionStorage.getItem("name")){
+				console.log(1)
+				$scope.user_name=sessionStorage.getItem("name")
+				$scope.loginShow=1
+			}else{
+				$scope.loginShow=0
+				console.log(2)
+			}
+			$scope.cart= function () {
+				window.location.href="cart.html";
+			}
+			$scope.logOut= function () {
+				sessionStorage.setItem("name",'')
+				sessionStorage.setItem("uid",'')
+				location.reload()
+			}
+			$scope.register= function () {
+				window.location.href="login.html#/register";
+			}
+			$scope.login= function () {
+				window.location.href="login.html#/login";
+			}
+		})
+	</script>
+</body>
+</html>
